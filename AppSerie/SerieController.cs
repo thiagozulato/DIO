@@ -14,7 +14,7 @@ namespace Dio.AppSeries
         }
 
         public void InserirSerie()
-		{
+        {
             Executar(nameof(InserirSerie), () =>
             {
                 Console.WriteLine("Inserir nova série");
@@ -40,12 +40,12 @@ namespace Dio.AppSeries
                                     descricao: entradaDescricao);
 
                 _repositorio.Insere(novaSerie);
-            });			
-		}
+            });
+        }
 
         public void ListarSeries()
-		{
-			Executar(nameof(ListarSeries), () => 
+        {
+            Executar(nameof(ListarSeries), () =>
             {
                 Console.WriteLine("Listar séries");
 
@@ -62,11 +62,11 @@ namespace Dio.AppSeries
                     Console.WriteLine("#ID {0}: - {1} {2}", serie.Id, serie.Titulo, serie.Excluido ? "*Excluído*" : "");
                 }
             });
-		}
+        }
 
         public void AtualizarSerie()
-		{
-			Executar(nameof(AtualizarSerie), () =>
+        {
+            Executar(nameof(AtualizarSerie), () =>
             {
                 Console.Write("Digite o id da série: ");
                 int indiceSerie = int.Parse(Console.ReadLine());
@@ -93,11 +93,11 @@ namespace Dio.AppSeries
 
                 _repositorio.Atualiza(indiceSerie, atualizaSerie);
             });
-		}
+        }
 
         public void VisualizarSerie()
-		{
-			Executar(nameof(VisualizarSerie), () =>
+        {
+            Executar(nameof(VisualizarSerie), () =>
             {
                 Console.Write("Digite o id da série: ");
                 int indiceSerie = int.Parse(Console.ReadLine());
@@ -106,25 +106,25 @@ namespace Dio.AppSeries
 
                 Console.WriteLine(serie);
             });
-		}
+        }
 
         public void ExcluirSerie()
-		{
-			Executar(nameof(ExcluirSerie), () =>
+        {
+            Executar(nameof(ExcluirSerie), () =>
             {
                 Console.Write("Digite o id da série: ");
                 int indiceSerie = int.Parse(Console.ReadLine());
 
                 _repositorio.Exclui(indiceSerie);
             });
-		}
+        }
 
         private void ImprimirGeneros()
         {
             foreach (int i in Enum.GetValues(typeof(Genero)))
-			{
-				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
-			}
+            {
+                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
+            }
         }
     }
 }
